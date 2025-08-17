@@ -1,0 +1,6 @@
+timestamp,level,service,message
+2025-08-17T21:30:00,ERROR,payment-service,Database connection timeout after 30s - unable to process payment request
+2025-08-17T21:31:00,ERROR,payment-service,Failed to process payment: insufficient funds check failed due to DB timeout
+2025-08-17T21:32:00,WARN,user-service,High memory usage detected: 89% - approaching critical threshold
+2025-08-17T21:33:00,ERROR,payment-service,Payment gateway connection refused - all retries exhausted
+2025-08-17T21:34:00,CRITICAL,database,Connection pool exhausted - max connections reached (100/100)

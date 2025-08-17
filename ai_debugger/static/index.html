@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Log Debugger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="app-title">🤖 AI Log Debugger</h1>
+                    <p class="app-subtitle">Intelligent log analysis and incident response powered by AI</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                
+                <!-- Upload Section -->
+                <section class="upload-section" id="uploadSection">
+                    <div class="card">
+                        <div class="card__body">
+                            <div class="upload-area" id="uploadArea">
+                                <div class="upload-icon">📁</div>
+                                <h3>Drop your CSV log file here</h3>
+                                <p>or <button class="btn btn--outline btn--sm" id="browseBtn">browse files</button></p>
+                                <p class="upload-hint">Supports CSV files up to 10MB</p>
+                                <input type="file" id="fileInput" accept=".csv" hidden>
+                            </div>
+                            
+                            <div class="file-preview hidden" id="filePreview">
+                                <div class="file-info">
+                                    <div class="file-icon">📄</div>
+                                    <div class="file-details">
+                                        <div class="file-name" id="fileName"></div>
+                                        <div class="file-meta" id="fileMeta"></div>
+                                    </div>
+                                </div>
+                                <div class="file-actions">
+                                    <button class="btn btn--primary" id="analyzeBtn">
+                                        <span class="btn-text">Analyze Logs</span>
+                                        <span class="loading-spinner hidden" id="loadingSpinner">🔄</span>
+                                    </button>
+                                    <button class="btn btn--outline btn--sm" id="clearBtn">Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sample Data Button -->
+                    <div class="sample-section">
+                        <button class="btn btn--secondary" id="sampleBtn">Try Sample Data</button>
+                        <span class="sample-hint">See how it works with example logs</span>
+                    </div>
+                </section>
+
+                <!-- Processing Section -->
+                <section class="processing-section hidden" id="processingSection">
+                    <div class="card">
+                        <div class="card__body">
+                            <div class="processing-content">
+                                <div class="processing-icon">🤖</div>
+                                <h3>Analyzing your logs...</h3>
+                                <div class="processing-status" id="processingStatus">Initializing AI analysis</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Results Section -->
+                <section class="results-section hidden" id="resultsSection">
+                    <div class="results-header">
+                        <h2>Analysis Report</h2>
+                        <div class="results-actions">
+                            <button class="btn btn--outline btn--sm" id="copyBtn">📋 Copy</button>
+                            <button class="btn btn--outline btn--sm" id="exportBtn">💾 Export MD</button>
+                            <button class="btn btn--secondary btn--sm" id="newAnalysisBtn">New Analysis</button>
+                        </div>
+                    </div>
+                    
+                    <div class="report-content" id="reportContent">
+                        <!-- Report will be dynamically generated here -->
+                    </div>
+                </section>
+
+                <!-- Help Section -->
+                <section class="help-section">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>How to use</h3>
+                            <ol class="help-steps">
+                                <li>Upload a CSV file containing your application logs</li>
+                                <li>Click "Analyze Logs" to start AI-powered analysis</li>
+                                <li>Review the generated incident report with root cause analysis</li>
+                                <li>Export or copy the report for your incident documentation</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <p>Powered by AI • Built for DevOps teams</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast hidden" id="toast">
+        <span class="toast-message" id="toastMessage"></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
